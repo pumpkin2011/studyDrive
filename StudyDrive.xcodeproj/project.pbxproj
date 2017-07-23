@@ -40,6 +40,7 @@
 		0EB15A801F2024F40088A103 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB15A651F2024F40088A103 /* 8.png */; };
 		0EB15A811F2024F40088A103 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB15A661F2024F40088A103 /* 9.png */; };
 		0EB15A821F2024F40088A103 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB15A671F2024F40088A103 /* bg.png */; };
+		0EB15AAB1F2179D80088A103 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB15AAA1F2179D80088A103 /* SelectView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,8 @@
 		0EB15A651F2024F40088A103 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		0EB15A661F2024F40088A103 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
 		0EB15A671F2024F40088A103 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		0EB15AA91F2179D80088A103 /* SelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
+		0EB15AAA1F2179D80088A103 /* SelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				0EB15A411F201FF20088A103 /* LaunchScreen.storyboard */,
 				0EB15A441F201FF20088A103 /* Info.plist */,
 				0EB15A331F201FF20088A103 /* Supporting Files */,
+				0EB15AA91F2179D80088A103 /* SelectView.h */,
+				0EB15AAA1F2179D80088A103 /* SelectView.m */,
 			);
 			path = StudyDrive;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			files = (
 				0EB15A3B1F201FF20088A103 /* ViewController.m in Sources */,
 				0EB15A381F201FF20088A103 /* AppDelegate.m in Sources */,
+				0EB15AAB1F2179D80088A103 /* SelectView.m in Sources */,
 				0EB15A351F201FF20088A103 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +436,7 @@
 				0EB15A491F201FF20088A103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

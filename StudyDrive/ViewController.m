@@ -7,16 +7,27 @@
 //
 
 #import "ViewController.h"
+#import "SelectView.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    SelectView *selectView;
+}
 
 @end
 
 @implementation ViewController
 
+- (IBAction)clicked:(id)sender {
+    [selectView setAlphaToZero];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    selectView = [[SelectView alloc] initWithFrame:self.view.frame andBtn:[self.view viewWithTag:100]];
+    [self.view addSubview:selectView];
 }
 
 

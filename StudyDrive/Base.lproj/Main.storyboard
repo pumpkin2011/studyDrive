@@ -33,7 +33,7 @@
         <!--考驾照-->
         <scene sceneID="xz4-e6-H56">
             <objects>
-                <viewController id="mUN-uj-oia" sceneMemberID="viewController">
+                <viewController id="mUN-uj-oia" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1HI-Ku-XlO"/>
                         <viewControllerLayoutGuide type="bottom" id="ueh-NC-tra"/>
@@ -100,13 +100,16 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CXm-hh-1Fm">
                                 <rect key="frame" x="147" y="142" width="80" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTf-w2-2AV">
+                                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTf-w2-2AV">
                                         <rect key="frame" x="5" y="5" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="7wE-TU-GSq"/>
                                             <constraint firstAttribute="width" constant="70" id="X4I-zw-S41"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="1.png"/>
+                                        <connections>
+                                            <action selector="clicked:" destination="mUN-uj-oia" eventType="touchUpInside" id="9SL-7X-bpU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
