@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SelectView.h"
+#import "FirstViewController.h"
 
 @interface ViewController () {
     SelectView *selectView;
@@ -17,8 +18,37 @@
 
 @implementation ViewController
 
-- (IBAction)clicked:(id)sender {
-    [selectView setAlphaToZero];
+- (IBAction)clicked:(UIButton *)sender {
+    switch (sender.tag) {
+        // 中间
+        case 100:
+        {
+            [selectView setAlphaToZero];
+        }
+            break;
+        // 科目一
+        case 101:
+        {
+            [self.navigationController pushViewController:[[FirstViewController alloc] init] animated:YES];
+        }
+            break;
+        // 科目二
+        case 102:
+        {}
+            break;
+        // 科目三
+        case 103:
+        {}
+            break;
+        // 科目四
+        case 104:
+        {}
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 

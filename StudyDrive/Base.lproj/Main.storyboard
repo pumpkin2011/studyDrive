@@ -45,7 +45,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="urH-hQ-OeW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLN-Nj-uoM" userLabel="RightTop">
+                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLN-Nj-uoM" userLabel="RightTop">
                                 <rect key="frame" x="197.5" y="114" width="100" height="60"/>
                                 <color key="backgroundColor" red="0.14173884470834575" green="0.71184876526000829" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -57,8 +57,11 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clicked:" destination="mUN-uj-oia" eventType="touchUpInside" id="tAL-S4-LZz"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yt5-TW-nEg" userLabel="LeftBottom">
+                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yt5-TW-nEg" userLabel="LeftBottom">
                                 <rect key="frame" x="77.5" y="194" width="100" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.8412436080093797" blue="0.26865543033376638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -70,8 +73,11 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clicked:" destination="mUN-uj-oia" eventType="touchUpInside" id="2tB-yk-wMR"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpO-cb-lwz" userLabel="RightBottom">
+                            <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpO-cb-lwz" userLabel="RightBottom">
                                 <rect key="frame" x="197.5" y="194" width="100" height="60"/>
                                 <color key="backgroundColor" red="0.071832693394486058" green="1" blue="0.44132373861308583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -83,8 +89,11 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clicked:" destination="mUN-uj-oia" eventType="touchUpInside" id="6pu-Ih-pzy"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngf-rc-xvX" userLabel="LeftTop">
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngf-rc-xvX" userLabel="LeftTop">
                                 <rect key="frame" x="77.5" y="114" width="100" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.57689420971562677" blue="0.11414104554985149" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -96,6 +105,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clicked:" destination="mUN-uj-oia" eventType="touchUpInside" id="jqD-QU-eN7"/>
+                                </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CXm-hh-1Fm">
                                 <rect key="frame" x="147" y="142" width="80" height="80"/>
