@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "FirstTableViewCell.h"
+#import "TestSelectViewController.h"
 static NSString *const cellID = @"FirstTableViewCell";
 
 @interface FirstViewController ()<UITableViewDelegate, UITableViewDataSource>{
@@ -102,6 +103,25 @@ static NSString *const cellID = @"FirstTableViewCell";
     
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        // 章节练习
+        case 0:
+        {
+            TestSelectViewController *con = [[TestSelectViewController alloc] init];
+            con.myTitle = @"章节练习";
+            UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
+            item.title = @"";
+            self.navigationItem.backBarButtonItem = item;
+            [self.navigationController pushViewController:con animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 /*

@@ -10,6 +10,9 @@
 		0E43DD7B1F256BF900D1B504 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E43DD7A1F256BF900D1B504 /* FirstViewController.m */; };
 		0E97D40D1F26B65300F23DD8 /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E97D40B1F26B65300F23DD8 /* FirstTableViewCell.m */; };
 		0E97D40E1F26B65300F23DD8 /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E97D40C1F26B65300F23DD8 /* FirstTableViewCell.xib */; };
+		0E97D41E1F295A4900F23DD8 /* TestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E97D41D1F295A4900F23DD8 /* TestSelectViewController.m */; };
+		0E97D4221F295F0500F23DD8 /* TestSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E97D4201F295F0500F23DD8 /* TestSelectTableViewCell.m */; };
+		0E97D4231F295F0500F23DD8 /* TestSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E97D4211F295F0500F23DD8 /* TestSelectTableViewCell.xib */; };
 		0EB15A351F201FF20088A103 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB15A341F201FF20088A103 /* main.m */; };
 		0EB15A381F201FF20088A103 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB15A371F201FF20088A103 /* AppDelegate.m */; };
 		0EB15A3B1F201FF20088A103 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB15A3A1F201FF20088A103 /* ViewController.m */; };
@@ -52,6 +55,11 @@
 		0E97D40A1F26B65300F23DD8 /* FirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
 		0E97D40B1F26B65300F23DD8 /* FirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
 		0E97D40C1F26B65300F23DD8 /* FirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
+		0E97D41C1F295A4900F23DD8 /* TestSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectViewController.h; sourceTree = "<group>"; };
+		0E97D41D1F295A4900F23DD8 /* TestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectViewController.m; sourceTree = "<group>"; };
+		0E97D41F1F295F0500F23DD8 /* TestSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectTableViewCell.h; sourceTree = "<group>"; };
+		0E97D4201F295F0500F23DD8 /* TestSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectTableViewCell.m; sourceTree = "<group>"; };
+		0E97D4211F295F0500F23DD8 /* TestSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSelectTableViewCell.xib; sourceTree = "<group>"; };
 		0EB15A301F201FF20088A103 /* StudyDrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyDrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB15A341F201FF20088A103 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0EB15A361F201FF20088A103 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +117,8 @@
 			children = (
 				0E43DD791F256BF900D1B504 /* FirstViewController.h */,
 				0E43DD7A1F256BF900D1B504 /* FirstViewController.m */,
+				0E97D41C1F295A4900F23DD8 /* TestSelectViewController.h */,
+				0E97D41D1F295A4900F23DD8 /* TestSelectViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -119,6 +129,9 @@
 				0E97D40A1F26B65300F23DD8 /* FirstTableViewCell.h */,
 				0E97D40B1F26B65300F23DD8 /* FirstTableViewCell.m */,
 				0E97D40C1F26B65300F23DD8 /* FirstTableViewCell.xib */,
+				0E97D41F1F295F0500F23DD8 /* TestSelectTableViewCell.h */,
+				0E97D4201F295F0500F23DD8 /* TestSelectTableViewCell.m */,
+				0E97D4211F295F0500F23DD8 /* TestSelectTableViewCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -276,6 +289,7 @@
 				0EB15A431F201FF20088A103 /* LaunchScreen.storyboard in Resources */,
 				0EB15A681F2024F40088A103 /* 1.png in Resources */,
 				0EB15A7D1F2024F40088A103 /* 5.png in Resources */,
+				0E97D4231F295F0500F23DD8 /* TestSelectTableViewCell.xib in Resources */,
 				0EB15A7B1F2024F40088A103 /* 3.png in Resources */,
 				0EB15A7C1F2024F40088A103 /* 4.png in Resources */,
 				0EB15A6C1F2024F40088A103 /* 12.png in Resources */,
@@ -305,9 +319,11 @@
 				0EB15A3B1F201FF20088A103 /* ViewController.m in Sources */,
 				0EB15A381F201FF20088A103 /* AppDelegate.m in Sources */,
 				0E97D40D1F26B65300F23DD8 /* FirstTableViewCell.m in Sources */,
+				0E97D41E1F295A4900F23DD8 /* TestSelectViewController.m in Sources */,
 				0E43DD7B1F256BF900D1B504 /* FirstViewController.m in Sources */,
 				0EB15AAB1F2179D80088A103 /* SelectView.m in Sources */,
 				0EB15A351F201FF20088A103 /* main.m in Sources */,
+				0E97D4221F295F0500F23DD8 /* TestSelectTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
