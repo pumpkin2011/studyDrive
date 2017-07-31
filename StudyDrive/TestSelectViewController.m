@@ -8,6 +8,8 @@
 
 #import "TestSelectViewController.h"
 #import "TestSelectTableViewCell.h"
+#import "TestSelectModel.h"
+#import "MyDataManager.h"
 
 static NSString *cellID = @"TestSelectTableViewCell";
 
@@ -49,12 +51,16 @@ static NSString *cellID = @"TestSelectTableViewCell";
     cell.numberLabel.layer.masksToBounds = YES;
     cell.numberLabel.layer.cornerRadius = 8;
     cell.titleLabel.text = @"hello";
+    
+    TestSelectModel *model = self.dataArray[indexPath.row];
+    cell.numberLabel.text = model.pid;
+    cell.titleLabel.text = model.pname;
+    
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.dataArray.count;
-    return 10;
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

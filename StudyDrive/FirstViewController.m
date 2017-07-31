@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "FirstTableViewCell.h"
 #import "TestSelectViewController.h"
+#import "MyDataManager.h"
 static NSString *const cellID = @"FirstTableViewCell";
 
 @interface FirstViewController ()<UITableViewDelegate, UITableViewDataSource>{
@@ -112,6 +113,7 @@ static NSString *const cellID = @"FirstTableViewCell";
         {
             TestSelectViewController *con = [[TestSelectViewController alloc] init];
             con.myTitle = @"章节练习";
+            con.dataArray = [MyDataManager getData:chapter];
             UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
             item.title = @"";
             self.navigationItem.backBarButtonItem = item;
