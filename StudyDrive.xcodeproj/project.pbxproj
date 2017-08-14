@@ -213,6 +213,10 @@
 		0EB15A811F2024F40088A103 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB15A661F2024F40088A103 /* 9.png */; };
 		0EB15A821F2024F40088A103 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EB15A671F2024F40088A103 /* bg.png */; };
 		0EB15AAB1F2179D80088A103 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB15AAA1F2179D80088A103 /* SelectView.m */; };
+		0EE4B57E1F3EB4150076A770 /* AnswerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4B57D1F3EB4150076A770 /* AnswerScrollView.m */; };
+		0EE4B5821F4005DE0076A770 /* AnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4B5801F4005DE0076A770 /* AnswerTableViewCell.m */; };
+		0EE4B5831F4005DE0076A770 /* AnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EE4B5811F4005DE0076A770 /* AnswerTableViewCell.xib */; };
+		0EE4B5861F41143A0076A770 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE4B5851F41143A0076A770 /* AnswerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -438,6 +442,13 @@
 		0EB15A671F2024F40088A103 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		0EB15AA91F2179D80088A103 /* SelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
 		0EB15AAA1F2179D80088A103 /* SelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
+		0EE4B57C1F3EB4150076A770 /* AnswerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerScrollView.h; sourceTree = "<group>"; };
+		0EE4B57D1F3EB4150076A770 /* AnswerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerScrollView.m; sourceTree = "<group>"; };
+		0EE4B57F1F4005DE0076A770 /* AnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerTableViewCell.h; sourceTree = "<group>"; };
+		0EE4B5801F4005DE0076A770 /* AnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerTableViewCell.m; sourceTree = "<group>"; };
+		0EE4B5811F4005DE0076A770 /* AnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerTableViewCell.xib; sourceTree = "<group>"; };
+		0EE4B5841F41143A0076A770 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
+		0EE4B5851F41143A0076A770 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,6 +479,8 @@
 				0E43DD7A1F256BF900D1B504 /* FirstViewController.m */,
 				0E97D41C1F295A4900F23DD8 /* TestSelectViewController.h */,
 				0E97D41D1F295A4900F23DD8 /* TestSelectViewController.m */,
+				0EE4B5841F41143A0076A770 /* AnswerViewController.h */,
+				0EE4B5851F41143A0076A770 /* AnswerViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -481,6 +494,9 @@
 				0E97D41F1F295F0500F23DD8 /* TestSelectTableViewCell.h */,
 				0E97D4201F295F0500F23DD8 /* TestSelectTableViewCell.m */,
 				0E97D4211F295F0500F23DD8 /* TestSelectTableViewCell.xib */,
+				0EE4B57F1F4005DE0076A770 /* AnswerTableViewCell.h */,
+				0EE4B5801F4005DE0076A770 /* AnswerTableViewCell.m */,
+				0EE4B5811F4005DE0076A770 /* AnswerTableViewCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -707,6 +723,7 @@
 		0EB15A321F201FF20088A103 /* StudyDrive */ = {
 			isa = PBXGroup;
 			children = (
+				0EE4B57B1F3EB3CD0076A770 /* view */,
 				0E2203111F2FF521007210A4 /* model */,
 				0E97D4521F2D989E00F23DD8 /* libs */,
 				0E97D4091F26B63500F23DD8 /* cell */,
@@ -715,8 +732,6 @@
 				0EB15A371F201FF20088A103 /* AppDelegate.m */,
 				0EB15A391F201FF20088A103 /* ViewController.h */,
 				0EB15A3A1F201FF20088A103 /* ViewController.m */,
-				0EB15AA91F2179D80088A103 /* SelectView.h */,
-				0EB15AAA1F2179D80088A103 /* SelectView.m */,
 				0EB15A3C1F201FF20088A103 /* Main.storyboard */,
 				0EB15A3F1F201FF20088A103 /* Assets.xcassets */,
 				0EB15A411F201FF20088A103 /* LaunchScreen.storyboard */,
@@ -766,6 +781,17 @@
 				0EB15A671F2024F40088A103 /* bg.png */,
 			);
 			path = SourceMaterial;
+			sourceTree = "<group>";
+		};
+		0EE4B57B1F3EB3CD0076A770 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0EB15AA91F2179D80088A103 /* SelectView.h */,
+				0EB15AAA1F2179D80088A103 /* SelectView.m */,
+				0EE4B57C1F3EB4150076A770 /* AnswerScrollView.h */,
+				0EE4B57D1F3EB4150076A770 /* AnswerScrollView.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -986,6 +1012,7 @@
 				0E97D6D71F2D9CD500F23DD8 /* 668.png in Resources */,
 				0E97D6DA1F2D9CD500F23DD8 /* 671.png in Resources */,
 				0E97D6DD1F2D9CD500F23DD8 /* 677.png in Resources */,
+				0EE4B5831F4005DE0076A770 /* AnswerTableViewCell.xib in Resources */,
 				0E97D6C11F2D9CD500F23DD8 /* 322.png in Resources */,
 				0E97D6811F2D9CD500F23DD8 /* 258.png in Resources */,
 				0E97D68D1F2D9CD500F23DD8 /* 270.png in Resources */,
@@ -1029,11 +1056,13 @@
 			files = (
 				0EB15A3B1F201FF20088A103 /* ViewController.m in Sources */,
 				0EB15A381F201FF20088A103 /* AppDelegate.m in Sources */,
+				0EE4B5821F4005DE0076A770 /* AnswerTableViewCell.m in Sources */,
 				0E97D40D1F26B65300F23DD8 /* FirstTableViewCell.m in Sources */,
 				0E97D6F31F2E9FFE00F23DD8 /* MyDataManager.m in Sources */,
 				0E97D6E71F2D9CD500F23DD8 /* FMDatabase.m in Sources */,
 				0E97D41E1F295A4900F23DD8 /* TestSelectViewController.m in Sources */,
 				0E97D6EA1F2D9CD500F23DD8 /* FMDatabaseQueue.m in Sources */,
+				0EE4B57E1F3EB4150076A770 /* AnswerScrollView.m in Sources */,
 				0E97D6EB1F2D9CD500F23DD8 /* FMResultSet.m in Sources */,
 				0E97D6E91F2D9CD500F23DD8 /* FMDatabasePool.m in Sources */,
 				0E43DD7B1F256BF900D1B504 /* FirstViewController.m in Sources */,
@@ -1041,6 +1070,7 @@
 				0EB15A351F201FF20088A103 /* main.m in Sources */,
 				0E97D4221F295F0500F23DD8 /* TestSelectTableViewCell.m in Sources */,
 				0E97D6E81F2D9CD500F23DD8 /* FMDatabaseAdditions.m in Sources */,
+				0EE4B5861F41143A0076A770 /* AnswerViewController.m in Sources */,
 				0E2203141F2FF562007210A4 /* TestSelectModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,8 @@
 #import "TestSelectViewController.h"
 #import "TestSelectTableViewCell.h"
 #import "TestSelectModel.h"
-#import "MyDataManager.h"
+//#import "MyDataManager.h"
+#import "AnswerViewController.h"
 
 static NSString *cellID = @"TestSelectTableViewCell";
 
@@ -47,7 +48,7 @@ static NSString *cellID = @"TestSelectTableViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"TestSelectTableViewCell";
     TestSelectTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    cell.numberLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
+    cell.numberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
     cell.numberLabel.layer.masksToBounds = YES;
     cell.numberLabel.layer.cornerRadius = 8;
     cell.titleLabel.text = @"hello";
@@ -65,6 +66,10 @@ static NSString *cellID = @"TestSelectTableViewCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.navigationController pushViewController:[[AnswerViewController alloc] init] animated:YES];
 }
 
 
