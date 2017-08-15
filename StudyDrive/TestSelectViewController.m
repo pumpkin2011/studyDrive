@@ -69,7 +69,9 @@ static NSString *cellID = @"TestSelectTableViewCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[AnswerViewController alloc] init] animated:YES];
+    AnswerViewController *avc = [[AnswerViewController alloc] init];
+    avc.number = indexPath.row;
+    [self.navigationController pushViewController:avc animated:YES];
 }
 
 

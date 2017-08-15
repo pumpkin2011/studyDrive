@@ -18,7 +18,8 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    self.numberLabel.clipsToBounds = YES;
+    self.numberLabel.layer.cornerRadius = 10;
 }
 
 @end

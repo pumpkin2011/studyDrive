@@ -8,6 +8,8 @@
 
 #import "AnswerScrollView.h"
 #import "AnswerTableViewCell.h"
+#import "AnswerModel.h"
+#import "Tools.h"
 #define SIZE self.frame.size
 static NSString *const REUSEMAINCELLID = @"mainTableCell";
 static NSString *cellID = @"AnswerTableViewCell";
@@ -29,6 +31,7 @@ static NSString *cellID = @"AnswerTableViewCell";
     
     self = [super initWithFrame:frame];
     if (self) {
+        _currentPage = 0;
         _dataArray = [[NSArray alloc] initWithArray:array];
         _scrollView = [[UIScrollView alloc] initWithFrame:frame];
         _scrollView.delegate = self;
@@ -97,25 +100,59 @@ static NSString *cellID = @"AnswerTableViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AnswerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     cell.numberLabel.text = [NSString stringWithFormat:@"%c", (char)('A' + indexPath.row)];
+    
+    AnswerModel *model;
+    if(tableView == _leftTableView && _currentPage == 0) {
+        model = _dataArray[_currentPage];
+    } else if (tableView == _leftTableView && _currentPage > 0) {
+        model = _dataArray[_currentPage - 1];
+    } else if (tableView == _mainTableView) {
+        if (_currentPage == 0) {
+            model = _dataArray[_currentPage + 1];
+        } else if (_currentPage == _dataArray.count-1) {
+            model = _dataArray[_currentPage - 1];
+        } else {
+            model = _dataArray[_currentPage];
+        }
+    } else if (tableView == _rightTableView) {
+        if (_currentPage == _dataArray.count-1) {
+            model = _dataArray[_currentPage];
+        } else {
+            model = _dataArray[_currentPage + 1];
+        }
+    }
+    
+    if ([model.mtype intValue] == 1) {
+        cell.answerLabel.text = [[Tools getAnswerWithString:model.mquestion] objectAtIndex:indexPath.row+1];
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AnswerTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.numberLabel.hidden = YES;
-    cell.numberImage.hidden = NO;
+//    cell.numberLabel.hidden = YES;
+//    cell.numberImage.hidden = NO;
 }
 
 #pragma mark - scrollView delegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGPoint currentOffset = scrollView.contentOffset;
     int page = (int)(currentOffset.x / SIZE.width);
-    if (page < _dataArray.count-1) {
+    if (page < _dataArray.count-1 && page > 0) {
         _scrollView.contentSize = CGSizeMake(currentOffset.x+SIZE.width*2, 0);
-        _mainTableView.frame = CGRectMake(currentOffset.x, 0, SIZE.width, SIZE.height);
         _leftTableView.frame = CGRectMake(currentOffset.x - SIZE.width, 0, SIZE.width, SIZE.height);
+        _mainTableView.frame = CGRectMake(currentOffset.x, 0, SIZE.width, SIZE.height);
         _rightTableView.frame = CGRectMake(currentOffset.x + SIZE.width, 0, SIZE.width, SIZE.height);
     }
+    _currentPage = page;
+    [self reloadData];
+}
+
+- (void)reloadData {
+    [_leftTableView reloadData];
+    [_rightTableView reloadData];
+    [_mainTableView reloadData];
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface AnswerViewController : UIViewController
 
+@property (nonatomic, assign)NSInteger number;
+
 @end
