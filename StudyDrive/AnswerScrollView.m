@@ -10,6 +10,7 @@
 #import "AnswerTableViewCell.h"
 #define SIZE self.frame.size
 static NSString *const REUSEMAINCELLID = @"mainTableCell";
+static NSString *cellID = @"AnswerTableViewCell";
 
 @interface AnswerScrollView()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>{
 
@@ -41,8 +42,14 @@ static NSString *const REUSEMAINCELLID = @"mainTableCell";
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;
         
+        [_mainTableView registerNib:[UINib nibWithNibName:cellID bundle:nil] forCellReuseIdentifier:cellID];
+        [_leftTableView registerNib:[UINib nibWithNibName:cellID bundle:nil] forCellReuseIdentifier:cellID];
+        [_rightTableView registerNib:[UINib nibWithNibName:cellID bundle:nil] forCellReuseIdentifier:cellID];
+        
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
         
         if (_currentPage || _dataArray.count > 1) {
             _scrollView.contentSize = CGSizeMake(SIZE.width * 2, 0);
@@ -74,6 +81,10 @@ static NSString *const REUSEMAINCELLID = @"mainTableCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 100;
 }
 
@@ -84,7 +95,6 @@ static NSString *const REUSEMAINCELLID = @"mainTableCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"AnswerTableViewCell";
     AnswerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     cell.numberLabel.text = [NSString stringWithFormat:@"%c", (char)('A' + indexPath.row)];
     return cell;
@@ -103,6 +113,8 @@ static NSString *const REUSEMAINCELLID = @"mainTableCell";
     if (page < _dataArray.count-1) {
         _scrollView.contentSize = CGSizeMake(currentOffset.x+SIZE.width*2, 0);
         _mainTableView.frame = CGRectMake(currentOffset.x, 0, SIZE.width, SIZE.height);
+        _leftTableView.frame = CGRectMake(currentOffset.x - SIZE.width, 0, SIZE.width, SIZE.height);
+        _rightTableView.frame = CGRectMake(currentOffset.x + SIZE.width, 0, SIZE.width, SIZE.height);
     }
 }
 

@@ -94,12 +94,12 @@ static NSString *const cellID = @"FirstTableViewCell";
 
 #pragma mark - tableView datasource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    int row = indexPath.row;
+    NSInteger row = indexPath.row;
     FirstTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:cellID owner:self options:nil] lastObject];
     }
-    [cell.firstCellImage  setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", row+7]]];
+    [cell.firstCellImage  setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.png", row+7]]];
     [cell.firstCellLabel setText:_dataArray[row]];
     
     return cell;
@@ -125,15 +125,5 @@ static NSString *const cellID = @"FirstTableViewCell";
             break;
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

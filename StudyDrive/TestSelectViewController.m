@@ -9,8 +9,8 @@
 #import "TestSelectViewController.h"
 #import "TestSelectTableViewCell.h"
 #import "TestSelectModel.h"
-//#import "MyDataManager.h"
 #import "AnswerViewController.h"
+#import "MyDataManager.h"
 
 static NSString *cellID = @"TestSelectTableViewCell";
 
