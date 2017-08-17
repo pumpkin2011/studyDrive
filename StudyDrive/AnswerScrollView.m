@@ -103,9 +103,54 @@ static NSString *cellID = @"AnswerTableViewCell";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIZE.width, 100)];
-    view.backgroundColor = [UIColor redColor];
+    AnswerModel *model = [self getTheFitModel:tableView];
+    CGFloat height;
+    NSString *str;
+    if ([model.mtype intValue] == 1) {
+        str = [[Tools getAnswerWithString:model.mquestion] firstObject];
+        UIFont *font = [UIFont systemFontOfSize:16];
+        height = [Tools getSizeWithString:str WithFont:font WithSize:CGSizeMake(tableView.frame.size.width-20, 400)].height + 20;
+    } else {
+        str = model.mquestion;
+        UIFont *font = [UIFont systemFontOfSize:16];
+        height = [Tools getSizeWithString:str WithFont:font WithSize:CGSizeMake(tableView.frame.size.width-20, 400)].height + 20;
+    }
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIZE.width, height)];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.frame.size.width-20, height-20)];
+    label.text = [NSString stringWithFormat:@"%d.%@", [self getQuestionNumber:tableView AndCurrentPage:_currentPage], str];
+    label.font = [UIFont systemFontOfSize:16];
+    label.numberOfLines = 0;
+
+    [view addSubview:label];
+    
     return view;
+}
+
+- (int)getQuestionNumber:(UITableView *)tableView AndCurrentPage:(int)page {
+    if (tableView == _leftTableView) {
+        if (page == 0) {
+            return 1;
+        } else {
+            return page;
+        }
+    } else if (tableView == _mainTableView) {
+        if (page > 0 && page <_dataArray.count-1) {
+            return page + 1;
+        } else if (page == 0) {
+            return 2;
+        } else if (page == _dataArray.count-1) {
+            return page;
+        }
+    } else if (tableView == _rightTableView) {
+        if (page < _dataArray.count - 1) {
+            return page + 2;
+        } else if (page == _dataArray.count-1) {
+            return page + 1;
+        }
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,6 +164,29 @@ static NSString *cellID = @"AnswerTableViewCell";
     }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    AnswerModel *model = [self getTheFitModel:tableView];
+    NSString *str = [NSString stringWithFormat:@"答案解析：%@", model.mdesc];
+    UIFont *font = [UIFont systemFontOfSize:16];
+    return [Tools getSizeWithString:str WithFont:font WithSize:CGSizeMake(tableView.frame.size.width-20, 400)].height + 20;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    AnswerModel *model = [self getTheFitModel:tableView];
+    NSString *str = [NSString stringWithFormat:@"答案解析：%@", model.mdesc];
+    CGFloat height = [Tools getSizeWithString:str WithFont:[UIFont systemFontOfSize:16] WithSize:CGSizeMake(tableView.frame.size.width-20, 400)].height + 20;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, height)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, view.frame.size.width-20, view.frame.size.height-20)];
+    label.text = str;
+    label.font = [UIFont systemFontOfSize:16];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor greenColor];
+    [view addSubview:label];
+    
+    return view;
 }
 
 - (AnswerModel *)getTheFitModel:(UITableView *)tableView {
