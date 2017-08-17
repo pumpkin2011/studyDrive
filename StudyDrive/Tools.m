@@ -20,4 +20,9 @@
     return array;
 }
 
++ (CGSize)getSizeWithString:(NSString *)str WithFont:(UIFont *)font WithSize:(CGSize)size {
+    CGSize newSize = [str sizeWithFont:font constrainedToSize:size];
+    return newSize;
+}
+
 @end

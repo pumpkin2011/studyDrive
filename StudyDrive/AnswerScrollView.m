@@ -88,7 +88,18 @@ static NSString *cellID = @"AnswerTableViewCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 100;
+    AnswerModel *model = [self getTheFitModel:tableView];
+    CGFloat height;
+    if ([model.mtype intValue] == 1) {
+        NSString *str = [[Tools getAnswerWithString:model.mquestion] firstObject];
+        UIFont *font = [UIFont systemFontOfSize:16];
+        height = [Tools getSizeWithString:str WithFont:font WithSize:CGSizeMake(tableView.frame.size.width-20, 400)].height + 20;
+    } else {
+        NSString *str = model.mquestion;
+        UIFont *font = [UIFont systemFontOfSize:16];
+        height = [Tools getSizeWithString:str WithFont:font WithSize:CGSizeMake(tableView.frame.size.width-20, 400)].height + 20;
+    }
+    return MAX(height, 80);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -101,11 +112,23 @@ static NSString *cellID = @"AnswerTableViewCell";
     AnswerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     cell.numberLabel.text = [NSString stringWithFormat:@"%c", (char)('A' + indexPath.row)];
     
+    AnswerModel *model = [self getTheFitModel:tableView];
+    
+    if ([model.mtype intValue] == 1) {
+        cell.answerLabel.text = [[Tools getAnswerWithString:model.mquestion] objectAtIndex:indexPath.row+1];
+    }
+    
+    return cell;
+}
+
+- (AnswerModel *)getTheFitModel:(UITableView *)tableView {
     AnswerModel *model;
-    if(tableView == _leftTableView && _currentPage == 0) {
-        model = _dataArray[_currentPage];
-    } else if (tableView == _leftTableView && _currentPage > 0) {
-        model = _dataArray[_currentPage - 1];
+    if(tableView == _leftTableView) {
+        if (_currentPage == 0) {
+            model = _dataArray[_currentPage];
+        } else {
+            model = _dataArray[_currentPage - 1];
+        }
     } else if (tableView == _mainTableView) {
         if (_currentPage == 0) {
             model = _dataArray[_currentPage + 1];
@@ -122,11 +145,7 @@ static NSString *cellID = @"AnswerTableViewCell";
         }
     }
     
-    if ([model.mtype intValue] == 1) {
-        cell.answerLabel.text = [[Tools getAnswerWithString:model.mquestion] objectAtIndex:indexPath.row+1];
-    }
-    
-    return cell;
+    return model;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
