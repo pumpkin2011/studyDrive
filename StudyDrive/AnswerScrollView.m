@@ -25,6 +25,7 @@ static NSString *cellID = @"AnswerTableViewCell";
     UITableView *_rightTableView;
     UITableView *_mainTableView;
     NSArray *_dataArray;
+    NSMutableArray *_hadAnsweredArray;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame WithDataArray:(NSArray *)array {
@@ -33,7 +34,11 @@ static NSString *cellID = @"AnswerTableViewCell";
     if (self) {
         _currentPage = 0;
         _dataArray = [[NSArray alloc] initWithArray:array];
+        _hadAnsweredArray = [[NSMutableArray alloc] init];
         _scrollView = [[UIScrollView alloc] initWithFrame:frame];
+        for (int i=0; i<array.count; i++) {
+            [_hadAnsweredArray addObject:@"0"];
+        }
         _scrollView.delegate = self;
         _leftTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
         _mainTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
@@ -162,6 +167,22 @@ static NSString *cellID = @"AnswerTableViewCell";
     if ([model.mtype intValue] == 1) {
         cell.answerLabel.text = [[Tools getAnswerWithString:model.mquestion] objectAtIndex:indexPath.row+1];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    int page = [self getQuestionNumber:tableView AndCurrentPage:_currentPage];
+    if ([_hadAnsweredArray[page-1] intValue] != 0) {
+        if ([model.manswer isEqualToString:[NSString stringWithFormat:@"%c", 'A'+(int)indexPath.row]]) {
+            cell.numberImage.hidden = NO;
+            cell.numberImage.image = [UIImage imageNamed:@"19.png"];
+            cell.numberLabel.hidden = YES;
+        }
+        if (![model.manswer isEqualToString:[NSString stringWithFormat:@"%c", 'A'+[_hadAnsweredArray[page-1] intValue]-1]] && indexPath.row == [_hadAnsweredArray[page-1] intValue]-1) {
+            cell.numberImage.hidden = NO;
+            cell.numberImage.image = [UIImage imageNamed:@"20.png"];
+        }
+    } else {
+        cell.numberImage.hidden = YES;
+    }
     
     return cell;
 }
@@ -186,7 +207,12 @@ static NSString *cellID = @"AnswerTableViewCell";
     label.textColor = [UIColor greenColor];
     [view addSubview:label];
     
-    return view;
+    int page = [self getQuestionNumber:tableView AndCurrentPage:_currentPage];
+    if ([_hadAnsweredArray[page - 1] intValue] != 0) {
+        return view;
+    }
+    
+    return nil;
 }
 
 - (AnswerModel *)getTheFitModel:(UITableView *)tableView {
@@ -217,9 +243,13 @@ static NSString *cellID = @"AnswerTableViewCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AnswerTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    cell.numberLabel.hidden = YES;
-//    cell.numberImage.hidden = NO;
+    int page = [self getQuestionNumber:tableView AndCurrentPage:_currentPage];
+    if ([_hadAnsweredArray[page-1] intValue] != 0) {
+        return;
+    } else {
+        [_hadAnsweredArray replaceObjectAtIndex:page-1 withObject:[NSString stringWithFormat:@"%ld", indexPath.row+1]];
+    }
+    [self reloadData];
 }
 
 #pragma mark - scrollView delegate
