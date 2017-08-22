@@ -182,6 +182,7 @@ static NSString *cellID = @"AnswerTableViewCell";
         }
     } else {
         cell.numberImage.hidden = YES;
+        cell.numberLabel.hidden = NO;
     }
     
     return cell;
