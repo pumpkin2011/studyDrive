@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AnswerViewControllerDelegate <NSObject>
+
+- (void)refreshMainTableData;
+
+@end
+
 @interface AnswerViewController : UIViewController
 
 @property (nonatomic, assign)NSInteger number;
+
+@property (nonatomic, assign)id delegate;
 
 @end

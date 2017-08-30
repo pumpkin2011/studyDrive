@@ -10,11 +10,12 @@
 #import "AnswerTableViewCell.h"
 #import "AnswerModel.h"
 #import "Tools.h"
+#import "AnswerViewController.h"
 #define SIZE self.frame.size
 static NSString *const REUSEMAINCELLID = @"mainTableCell";
 static NSString *cellID = @"AnswerTableViewCell";
 
-@interface AnswerScrollView()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>{
+@interface AnswerScrollView()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, AnswerViewControllerDelegate>{
 
 }
 @end
@@ -24,8 +25,6 @@ static NSString *cellID = @"AnswerTableViewCell";
     UITableView *_leftTableView;
     UITableView *_rightTableView;
     UITableView *_mainTableView;
-    NSArray *_dataArray;
-    NSMutableArray *_hadAnsweredArray;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame WithDataArray:(NSArray *)array {
@@ -175,10 +174,11 @@ static NSString *cellID = @"AnswerTableViewCell";
             cell.numberImage.hidden = NO;
             cell.numberImage.image = [UIImage imageNamed:@"19.png"];
             cell.numberLabel.hidden = YES;
-        }
-        if (![model.manswer isEqualToString:[NSString stringWithFormat:@"%c", 'A'+[_hadAnsweredArray[page-1] intValue]-1]] && indexPath.row == [_hadAnsweredArray[page-1] intValue]-1) {
+        } else if (![model.manswer isEqualToString:[NSString stringWithFormat:@"%c", 'A'+[_hadAnsweredArray[page-1] intValue]-1]] && indexPath.row == [_hadAnsweredArray[page-1] intValue]-1) {
             cell.numberImage.hidden = NO;
             cell.numberImage.image = [UIImage imageNamed:@"20.png"];
+        } else {
+            cell.numberImage.hidden = YES;
         }
     } else {
         cell.numberImage.hidden = YES;
@@ -270,6 +270,11 @@ static NSString *cellID = @"AnswerTableViewCell";
 - (void)reloadData {
     [_leftTableView reloadData];
     [_rightTableView reloadData];
+    [_mainTableView reloadData];
+}
+
+# pragma mark - AnswerViewController delegate
+- (void)refreshMainTableData {
     [_mainTableView reloadData];
 }
 

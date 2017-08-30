@@ -13,5 +13,7 @@
 - (instancetype)initWithFrame:(CGRect)frame WithDataArray:(NSArray *)array;
 
 @property (nonatomic, assign, readonly)int currentPage;
+@property (nonatomic, strong) NSMutableArray *hadAnsweredArray;
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
