@@ -10,9 +10,11 @@
 #import "AnswerScrollView.h"
 #import "MyDataManager.h"
 #import "AnswerModel.h"
+#import "SelectModelView.h"
 
 @interface AnswerViewController () {
-AnswerScrollView *view;
+    AnswerScrollView *view;
+    SelectModelView *modelView;
 }
 
 @end
@@ -35,9 +37,11 @@ AnswerScrollView *view;
     }
     
     view = [[AnswerScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-60) WithDataArray:array];
+    self.delegate = view;
+    
     [self.view addSubview:view];
     [self createToolBar];
-    self.delegate = view;
+    [self createModelView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +74,23 @@ AnswerScrollView *view;
         [barView addSubview:label];
     }
     [self.view addSubview:barView];
+}
+
+//
+- (void)createModelView {
+    modelView = [[SelectModelView alloc] initWithFrame:self.view.frame addTouch:^(SelectModel model) {
+        NSLog(@"当前模式：%d", model);
+    }];
+    [self.view addSubview:modelView];
+    modelView.hidden = YES;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"答题模式" style:UIBarButtonItemStylePlain target:self action:@selector(modelChange:)];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)modelChange:(UIBarButtonItem *)item {
+    [UIView animateWithDuration:0.3 animations:^{
+        modelView.hidden = NO;
+    }];
 }
 
 - (void)clickToolBar:(UIButton *)btn {
