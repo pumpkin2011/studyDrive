@@ -11,10 +11,12 @@
 #import "MyDataManager.h"
 #import "AnswerModel.h"
 #import "SelectModelView.h"
+#import "SheetView.h"
 
 @interface AnswerViewController () {
     AnswerScrollView *view;
     SelectModelView *modelView;
+    SheetView *_sheetView;
 }
 
 @end
@@ -42,6 +44,7 @@
     [self.view addSubview:view];
     [self createToolBar];
     [self createModelView];
+    [self createSheetView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,6 +90,12 @@
     self.navigationItem.rightBarButtonItem = item;
 }
 
+//
+- (void)createSheetView {
+    _sheetView = [[SheetView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-20) WithSuperView:self.view];
+    [self.view addSubview:_sheetView];
+}
+
 - (void)modelChange:(UIBarButtonItem *)item {
     [UIView animateWithDuration:0.3 animations:^{
         modelView.hidden = NO;
@@ -96,7 +105,11 @@
 - (void)clickToolBar:(UIButton *)btn {
     switch (btn.tag) {
         case 301:
-        {}
+        {
+            [UIView animateWithDuration:0.3 animations:^{
+                _sheetView.frame = CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80);
+            }];
+        }
             break;
             
         case 302:  // 查看答案

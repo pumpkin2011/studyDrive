@@ -13,6 +13,7 @@
 		0E2A1A7A1F42EAC8007636B5 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A1A791F42EAC8007636B5 /* Tools.m */; };
 		0E43DD7B1F256BF900D1B504 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E43DD7A1F256BF900D1B504 /* FirstViewController.m */; };
 		0E5180181F5698320052B8A8 /* SelectModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5180171F5698320052B8A8 /* SelectModelView.m */; };
+		0E51801B1F57E5650052B8A8 /* SheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E51801A1F57E5650052B8A8 /* SheetView.m */; };
 		0E97D40D1F26B65300F23DD8 /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E97D40B1F26B65300F23DD8 /* FirstTableViewCell.m */; };
 		0E97D40E1F26B65300F23DD8 /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E97D40C1F26B65300F23DD8 /* FirstTableViewCell.xib */; };
 		0E97D41E1F295A4900F23DD8 /* TestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E97D41D1F295A4900F23DD8 /* TestSelectViewController.m */; };
@@ -233,6 +234,8 @@
 		0E43DD7A1F256BF900D1B504 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		0E5180161F5698320052B8A8 /* SelectModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectModelView.h; sourceTree = "<group>"; };
 		0E5180171F5698320052B8A8 /* SelectModelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectModelView.m; sourceTree = "<group>"; };
+		0E5180191F57E5650052B8A8 /* SheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SheetView.h; sourceTree = "<group>"; };
+		0E51801A1F57E5650052B8A8 /* SheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SheetView.m; sourceTree = "<group>"; };
 		0E97D40A1F26B65300F23DD8 /* FirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
 		0E97D40B1F26B65300F23DD8 /* FirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
 		0E97D40C1F26B65300F23DD8 /* FirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
@@ -805,6 +808,8 @@
 				0EE4B57D1F3EB4150076A770 /* AnswerScrollView.m */,
 				0E5180161F5698320052B8A8 /* SelectModelView.h */,
 				0E5180171F5698320052B8A8 /* SelectModelView.m */,
+				0E5180191F57E5650052B8A8 /* SheetView.h */,
+				0E51801A1F57E5650052B8A8 /* SheetView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1071,6 +1076,7 @@
 			files = (
 				0EB15A3B1F201FF20088A103 /* ViewController.m in Sources */,
 				0EB15A381F201FF20088A103 /* AppDelegate.m in Sources */,
+				0E51801B1F57E5650052B8A8 /* SheetView.m in Sources */,
 				0EE4B5821F4005DE0076A770 /* AnswerTableViewCell.m in Sources */,
 				0E97D40D1F26B65300F23DD8 /* FirstTableViewCell.m in Sources */,
 				0E97D6F31F2E9FFE00F23DD8 /* MyDataManager.m in Sources */,
