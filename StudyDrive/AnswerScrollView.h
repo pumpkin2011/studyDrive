@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AnswerScrollView : UIView
+@interface AnswerScrollView : UIView {
+    @public
+    UIScrollView *_scrollView;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame WithDataArray:(NSArray *)array;
 

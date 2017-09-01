@@ -13,8 +13,8 @@
 #import "SelectModelView.h"
 #import "SheetView.h"
 
-@interface AnswerViewController () {
-    AnswerScrollView *view;
+@interface AnswerViewController () <SheetViewDelegate> {
+    AnswerScrollView *_answerScrollView;
     SelectModelView *modelView;
     SheetView *_sheetView;
 }
@@ -38,10 +38,10 @@
         }
     }
     
-    view = [[AnswerScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-60) WithDataArray:array];
-    self.delegate = view;
+    _answerScrollView = [[AnswerScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-60) WithDataArray:array];
+    self.delegate = _answerScrollView;
     
-    [self.view addSubview:view];
+    [self.view addSubview:_answerScrollView];
     [self createToolBar];
     [self createModelView];
     [self createSheetView];
@@ -92,8 +92,9 @@
 
 //
 - (void)createSheetView {
-    _sheetView = [[SheetView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-20) WithSuperView:self.view];
+    _sheetView = [[SheetView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-20) WithSuperView:self.view AndQuestionsCount:100];
     [self.view addSubview:_sheetView];
+    _sheetView.delegate = self;
 }
 
 - (void)modelChange:(UIBarButtonItem *)item {
@@ -108,18 +109,19 @@
         {
             [UIView animateWithDuration:0.3 animations:^{
                 _sheetView.frame = CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80);
+                _sheetView -> _backView.alpha = 0.8;
             }];
         }
             break;
             
         case 302:  // 查看答案
         {
-            if ([view.hadAnsweredArray[view.currentPage] intValue] != 0) {
+            if ([_answerScrollView.hadAnsweredArray[_answerScrollView.currentPage] intValue] != 0) {
                 return;
             } else {
-                NSString *answer = ((AnswerModel *)view.dataArray[view.currentPage]).manswer;
+                NSString *answer = ((AnswerModel *)_answerScrollView.dataArray[_answerScrollView.currentPage]).manswer;
                 char an = [answer characterAtIndex:0];
-                [view.hadAnsweredArray replaceObjectAtIndex:view.currentPage withObject:[NSString stringWithFormat:@"%d", an-'A'+1]];
+                [_answerScrollView.hadAnsweredArray replaceObjectAtIndex:_answerScrollView.currentPage withObject:[NSString stringWithFormat:@"%d", an-'A'+1]];
                 [self.delegate refreshMainTableData];
             }
         }
@@ -134,5 +136,11 @@
     }
 }
 
+#pragma maks - delegate
+- (void)sheetViewClick:(int)index {
+    UIScrollView *scroll = _answerScrollView -> _scrollView;
+    scroll.contentOffset = CGPointMake((index-1)*scroll.frame.size.width, 0);
+    [scroll.delegate scrollViewDidEndDecelerating:scroll];
+}
 
 @end
